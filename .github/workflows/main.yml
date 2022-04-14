@@ -7,8 +7,8 @@ env:
   DEFAULT_CLOUD_PROVIDER: GCP
   CLOUD_SECRETS: secretsGCP
   PULUMI_SECRETS: secretsPulumi
-  GITHUB_SECRETS: ${{ secrets.GIT_TOKEN }}
-  GITHUB_LOCATION: Default
+  GIT_SECRETS: ${{ secrets.GIT_TOKEN }}
+  GIT_LOCATION: Default
     
 jobs:
   builds:
@@ -28,7 +28,7 @@ jobs:
           ls
           cd pulumi-backend-${L0_COMPANY_NAME}
           curl -X POST \
-          -H 'Authorization: Bearer ${GITHUB_SECRETS}' \
+          -H 'Authorization: Bearer ${GIT_SECRETS}' \
           -d '{"name": "tutorial-repo", "description": "This is a from an API call"}' \
           https://api.github.com/user/repos
           
