@@ -7,6 +7,7 @@ env:
   DEFAULT_CLOUD_PROVIDER: GCP
   CLOUD_SECRETS: secretsGCP
   PULUMI_SECRETS: secretsPulumi
+  GITHUB_SECRETS: secretsGithub
   GITHUB_LOCATION: Default
     
 jobs:
@@ -21,6 +22,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Create Pulumi Backend repo for company & configure
+        run: |
+          mkdir pulumi-backend-${L0_COMPANY_NAME}
+          ls
+          cd pulumi-baclend
+          
       #- name: Clone Pulumi Backend & write in local repo
       #  run: |
       #    npm install
