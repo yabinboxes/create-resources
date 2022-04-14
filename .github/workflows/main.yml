@@ -26,7 +26,6 @@ jobs:
         run: |
           mkdir pulumi-backend-${L0_COMPANY_NAME}
           ls
-          cd pulumi-baclend
           
       #- name: Clone Pulumi Backend & write in local repo
       #  run: |
