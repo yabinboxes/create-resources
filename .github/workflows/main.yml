@@ -26,6 +26,11 @@ jobs:
         run: |
           mkdir pulumi-backend-${L0_COMPANY_NAME}
           ls
+          cd pulumi-backend-${L0_COMPANY_NAME}
+          curl -X POST \
+          -H 'Authorization: Bearer ${GITHUB_SECRETS}' \
+          -d '{"name": "tutorial-repo", "description": "This is a from an API call"}' \
+          https://api.github.com/user/repos
           
       #- name: Clone Pulumi Backend & write in local repo
       #  run: |
