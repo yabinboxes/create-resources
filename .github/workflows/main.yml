@@ -7,7 +7,6 @@ env:
   DEFAULT_CLOUD_PROVIDER: GCP
   CLOUD_SECRETS: secretsGCP
   PULUMI_SECRETS: secretsPulumi
-  #GIT_SECRETS: ${{ secrets.GIT_TOKEN }}
   GIT_LOCATION: Default
     
 jobs:
