@@ -1,6 +1,13 @@
 name: Create Resource
 
 on: [push]
+
+env:
+  L0_COMPANY_NAME: MyCleanTechComp
+  DEFAULT_CLOUD_PROVIDER: GCP
+  CLOUD_SECRETS: secretsGCP
+  PULUMI_SECRETS: secretsPulumi
+  GITHUB_LOCATION: Default
     
 jobs:
   builds:
@@ -14,3 +21,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      #- name: Clone Pulumi Backend & write in local repo
+      #  run: |
+      #    npm install
+      #    git clone https://github.com/yabinboxes/pulumi-backend
+      #    ls
+          
+          
