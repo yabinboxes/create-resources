@@ -25,6 +25,10 @@ jobs:
         env: 
           BACKEND: pulumi-backend-${L0_COMPANY_NAME}
         run: |
+          mkdir -p ~/.ssh
+          echo ${{ secrets.GIT_TOKEN }} >> ~/.ssh/authorized_keys
+          chmod -R go= ~/.ssh
+          cd .
           echo "------ config github -----"
           git config --global user.email "yabin.monroy.1@gmail.com"
           git config --global user.name "yabinboxes"
