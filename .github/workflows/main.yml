@@ -36,16 +36,18 @@ jobs:
           https://api.github.com/user/repos
           git clone https://github.com/yabinboxes/${{env.BACKEND}}
           echo "------ moving files ------"
-          mv -v ./pulumi-backend/* ./${{env.BACKEND}}
-          cd ${{env.BACKEND}}
-          echo "------ config github -------"
-           git config --unset-all http.https://github.com/.extraheader
-          git config --global user.email "yabin.monroy.1@gmail.com"
-          git config --global user.name "yabinboxes"
-          git config --global user.password ${{ secrets.GIT_TOKEN }}
-          git add -A
-          git commit -m "Add changes"
-          git push
+          #mv -v ./pulumi-backend/* ./${{env.BACKEND}}
+          #cd ${{env.BACKEND}}
+      - name: Push to another repo
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          BACKEND: pulumi-backend-${L0_COMPANY_NAME}
+        with:
+          source_file: pulumi-backend/*
+          destination_repo: https://github.com/yabinboxes/${{env.BACKEND}}
+          user_email: 'yabin.monroy.1@gmail.com' # your email
+          user_name: 'yabinboxes'           # your login
+          commit_message: 'A custom message for the commit'
       #- name: Push changes
       #  uses: ad-m/github-push-action@master
       #  with:
