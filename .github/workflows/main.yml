@@ -44,7 +44,6 @@ jobs:
           git add -A
           git commit -m "first commit"
           git push
-          
       #- name: Clone Pulumi Backend & write in local repo
       #  run: |
       #    npm install
