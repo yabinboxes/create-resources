@@ -8,7 +8,7 @@ env:
   CLOUD_SECRETS: secretsGCP
   PULUMI_SECRETS: secretsPulumi
   GIT_LOCATION: Default
-  BACKEND_NAME: pulumi-backend-$L0_COMPANY_NAME
+  BACKEND_NAME: pulumi-backend${{L0_COMPANY_NAME}}
     
 jobs:
   builds:
