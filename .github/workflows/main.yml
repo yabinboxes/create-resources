@@ -31,7 +31,8 @@ jobs:
           -d "{\"name\": \"${{env.BACKEND}}\", \"description\": \"This is a from an API call\"}" \
           https://api.github.com/user/repos
           echo "------ cloning code ------"
-          git clone https://github.com/yabinboxes/${{env.BACKEND}}
+          git clone git@github.com:yabinboxes/${{env.BACKEND}}.git
+          #git clone https://github.com/yabinboxes/${{env.BACKEND}}
           ls
           echo "------ moving files ------"
           mv -v ./pulumi-backend/* ./${{env.BACKEND}}
