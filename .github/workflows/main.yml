@@ -21,16 +21,18 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          persist-credentials: false
+          fetch-depth: 0
       - name: Create Pulumi Backend repo for company & configure
         env: 
           BACKEND: pulumi-backend-${L0_COMPANY_NAME}
         run: |
           echo "------ config github -----"
-          sudo git config --system user.email "yabin.monroy.1@gmail.com"
-          sudo git config --system user.name "yabinboxes"
-          sudo git config --system user.password "${{ secrets.GIT_TOKEN }}"
-          sudo git config --system push.default current
-          sudo git config --system init.defaultBranch main
+          git config --local user.email "yabin.monroy.1@gmail.com"
+          git config --local user.name "yabinboxes"
+          git config --local user.password "${{ secrets.GIT_TOKEN }}"
+          git config --local push.default current
+          git config --local init.defaultBranch main
           git clone https://github.com/yabinboxes/pulumi-backend
           #curl -X POST \
           #-H 'Authorization: Bearer ${{ secrets.GIT_TOKEN }}' \
