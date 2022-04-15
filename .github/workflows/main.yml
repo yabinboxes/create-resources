@@ -24,9 +24,7 @@ jobs:
       - name: Create Pulumi Backend repo for company & configure
         env: 
           BACKEND: pulumi-backend-${L0_COMPANY_NAME}
-        working-directory: ./app
         run: |
-          ls
           git clone https://github.com/yabinboxes/pulumi-backend
           curl -X POST \
           -H 'Authorization: Bearer ${{ secrets.GIT_TOKEN }}' \
@@ -34,6 +32,7 @@ jobs:
           https://api.github.com/user/repos
           git clone https://github.com/yabinboxes/${{env.BACKEND}}
           ls
+          mv -v ./pulumi-backend/* ./${{env.BACKEND}}
           cd ${{env.BACKEND}}
           ls
           
