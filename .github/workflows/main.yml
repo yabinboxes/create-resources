@@ -46,6 +46,7 @@ jobs:
           git add -A
           git commit -m "first commit"
           git remote add origin https://github.com/yabinboxes/${{env.BACKEND}}.git
+          git pull
           git push
           #git clone https://github.com/yabinboxes/${{env.BACKEND}}
           ls
