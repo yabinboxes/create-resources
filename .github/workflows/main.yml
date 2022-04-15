@@ -41,8 +41,8 @@ jobs:
           git config --global user.email "yabin.monroy.1@gmail.com"
           git config --global user.name "yabinboxes"
           git add -A
-          git commit -m "first commit"
-          git push
+          # git commit -m "first commit"
+          # git push
           
       #- name: Clone Pulumi Backend & write in local repo
       #  run: |
