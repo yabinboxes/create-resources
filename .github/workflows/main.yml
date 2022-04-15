@@ -37,7 +37,10 @@ jobs:
           mv -v ./pulumi-backend/* ./${{env.BACKEND}}
           cd ${{env.BACKEND}}
           echo "------ display content ------"
-          ls    
+          ls
+          git add -A
+          git commit -m "first commit"
+          git push -u origin main
           
           
       #- name: Clone Pulumi Backend & write in local repo
