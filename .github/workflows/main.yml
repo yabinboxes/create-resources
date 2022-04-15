@@ -38,14 +38,14 @@ jobs:
           mv -v ./pulumi-backend/* ./${{env.BACKEND}}
           cd ${{env.BACKEND}}
           echo "------ create repo in github -------"
+          git config --global user.email "yabin.monroy.1@gmail.com"
+          git config --global user.name "yabinboxes"
+          git config --global user.password "${{ secrets.GIT_TOKEN }}"
           git init
           git add -A
           git commit -m "first commit"
           git remote add origin https://github.com/yabinboxes/${{env.BACKEND}}.git
           echo "------ config github -----"
-          git config --local user.email "yabin.monroy.1@gmail.com"
-          git config --local user.name "yabinboxes"
-          git config --local user.password "${{ secrets.GIT_TOKEN }}"
           git push
           #git clone https://github.com/yabinboxes/${{env.BACKEND}}
           ls
