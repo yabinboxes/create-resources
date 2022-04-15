@@ -29,7 +29,7 @@ jobs:
           cd pulumi-backend-${L0_COMPANY_NAME}
           curl -X POST \
           -H 'Authorization: Bearer ${{ secrets.GIT_TOKEN }}' \
-          -d '{"name": "${BACKEND_NAME}", "description": "This is a from an API call"}' \
+          -d '{"name": "${{BACKEND_NAME}}", "description": "This is a from an API call"}' \
           https://api.github.com/user/repos
           
       #- name: Clone Pulumi Backend & write in local repo
