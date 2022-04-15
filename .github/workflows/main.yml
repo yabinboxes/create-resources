@@ -27,30 +27,25 @@ jobs:
         env: 
           BACKEND: pulumi-backend-${L0_COMPANY_NAME}
         run: |
+          echo "------ clone repo pulumi-backend -----"
           git clone https://github.com/yabinboxes/pulumi-backend
-          #curl -X POST \
-          #-H 'Authorization: Bearer ${{ secrets.GIT_TOKEN }}' \
-          #-d "{\"name\": \"${{env.BACKEND}}\", \"description\": \"This is a from an API call\"}" \
-          #https://api.github.com/user/repos
           echo "------ create repo ------"
-          mkdir ${{env.BACKEND}}
+          curl -X POST \
+          -H 'Authorization: Bearer ${{ secrets.GIT_TOKEN }}' \
+          -d "{\"name\": \"${{env.BACKEND}}\", \"description\": \"This is a from an API call\"}" \
+          https://api.github.com/user/repos
           echo "------ moving files ------"
           mv -v ./pulumi-backend/* ./${{env.BACKEND}}
           cd ${{env.BACKEND}}
-          echo "------ create repo in github -------"
+          echo "------ config github -------"
           git config --global user.email "yabin.monroy.1@gmail.com"
           git config --global user.name "yabinboxes"
-          git config --global user.password "${{ secrets.GIT_TOKEN }}"
-          git config --global init.defaultBranch main
-          git init
-          git add -A
-          git commit -m "first commit"
-          git branch -M main
-          git remote add origin https://github.com/yabinboxes/${{env.BACKEND}}.git
-          echo "------ config github -----"
-          git push -u origin main
-          #git clone https://github.com/yabinboxes/${{env.BACKEND}}
-          ls
+          git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GIT_TOKEN }}
+          branch: ${{ github.ref }}
           
       #- name: Clone Pulumi Backend & write in local repo
       #  run: |
