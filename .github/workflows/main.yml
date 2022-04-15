@@ -42,8 +42,7 @@ jobs:
           git config --global user.name "yabinboxes"
           git add -A
           git commit -m "first commit"
-          git push -u origin main
-          
+          git push
           
       #- name: Clone Pulumi Backend & write in local repo
       #  run: |
