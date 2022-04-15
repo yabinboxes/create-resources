@@ -25,16 +25,12 @@ jobs:
         env: 
           BACKEND: pulumi-backend-${L0_COMPANY_NAME}
         run: |
-          mkdir -p ~/.ssh
-          echo ${{ secrets.GIT_TOKEN }} >> ~/.ssh/authorized_keys
-          chmod -R go= ~/.ssh
-          cd .
           echo "------ config github -----"
-          git config --global user.email "yabin.monroy.1@gmail.com"
-          git config --global user.name "yabinboxes"
-          git config --global user.password "${{ secrets.GIT_TOKEN }}"
-          git config --global push.default current
-          git config --global init.defaultBranch main
+          git config --system user.email "yabin.monroy.1@gmail.com"
+          git config --system user.name "yabinboxes"
+          git config --system user.password "${{ secrets.GIT_TOKEN }}"
+          git config --system push.default current
+          git config --system init.defaultBranch main
           git clone https://github.com/yabinboxes/pulumi-backend
           #curl -X POST \
           #-H 'Authorization: Bearer ${{ secrets.GIT_TOKEN }}' \
@@ -50,7 +46,6 @@ jobs:
           git add -A
           git commit -m "first commit"
           git remote add origin https://github.com/yabinboxes/${{env.BACKEND}}.git
-          git pull
           git push
           #git clone https://github.com/yabinboxes/${{env.BACKEND}}
           ls
