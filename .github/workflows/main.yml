@@ -44,7 +44,7 @@ jobs:
           BACKEND: pulumi-backend-${L0_COMPANY_NAME}
         with:
           source_file: pulumi-backend/*
-          destination_repo: https://github.com/yabinboxes/pulumi-backend-MyCleanTechComp
+          destination_repo: yabinboxes/pulumi-backend-MyCleanTechComp
           user_email: 'yabin.monroy.1@gmail.com' # your email
           user_name: 'yabinboxes'           # your login
           commit_message: 'A custom message for the commit'
