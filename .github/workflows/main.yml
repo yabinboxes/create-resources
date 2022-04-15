@@ -43,9 +43,8 @@ jobs:
           git init
           git add -A
           git commit -m "first commit"
-          git branch -M main
           git remote add origin https://github.com/yabinboxes/${{env.BACKEND}}.git
-          git push -u origin main
+          git push
           #git clone https://github.com/yabinboxes/${{env.BACKEND}}
           ls
           
