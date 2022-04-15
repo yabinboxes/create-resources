@@ -39,10 +39,10 @@ jobs:
           mv -v ./pulumi-backend/* ./${{env.BACKEND}}
           cd ${{env.BACKEND}}
           echo "------ config github -------"
+           git config --unset-all http.https://github.com/.extraheader
           git config --global user.email "yabin.monroy.1@gmail.com"
           git config --global user.name "yabinboxes"
           git config --global user.password ${{ secrets.GIT_TOKEN }}
-          git config --unset-all http.https://github.com/.extraheader
           git add -A
           git commit -m "Add changes"
           git push
