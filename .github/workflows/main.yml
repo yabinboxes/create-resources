@@ -27,7 +27,7 @@ jobs:
         run: |
           mkdir pulumi-backend-${L0_COMPANY_NAME}
           ls
-          echo ${{BACKEND}}
+          echo "${BACKEND}"
           curl -X POST \
           -H 'Authorization: Bearer ${{ secrets.GIT_TOKEN }}' \
           -d "{\"name\": \"${BACKEND}\", \"description\": \"This is a from an API call\"}" \
