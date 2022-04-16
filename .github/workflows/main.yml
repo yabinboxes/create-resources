@@ -43,7 +43,7 @@ jobs:
         env:
           BACKEND: pulumi-backend-${L0_COMPANY_NAME}
         with:
-          source_file: pulumi-backend/*
+          source_file: pulumi-backend
           destination_repo: yabinboxes/pulumi-backend-MyCleanTechComp
           user_email: 'yabin.monroy.1@gmail.com' # your email
           user_name: 'yabinboxes'           # your login
