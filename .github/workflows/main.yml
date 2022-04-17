@@ -25,6 +25,7 @@ jobs:
           -H 'Authorization: Bearer ${{ secrets.API_TOKEN_GITHUB }}' \
           -d "{\"name\": \"pulumi-backend-MyCleanTechComp\", \"auto_init\": \"true\", \"description\": \"This is a from an API call\"}" \
           https://api.github.com/user/repos
+          echo "------ list all ------"
           ls
       
       - name: Pushes test file
@@ -32,7 +33,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: '/pulumi-backend/'
+          source_file: 'pulumi-backend/*'
           destination_repo: 'yabinboxes/pulumi-backend-MyCleanTechComp'
           destination_folder: 'test-dir'
           user_email: 'yabin.monroy.1@gmail.com'
