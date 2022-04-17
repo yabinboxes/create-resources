@@ -33,7 +33,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'pulumi-backend/*'
+          source_file: pulumi-backend/*
           destination_repo: 'yabinboxes/pulumi-backend-MyCleanTechComp'
           destination_folder: 'test-dir'
           user_email: 'yabin.monroy.1@gmail.com'
