@@ -52,7 +52,7 @@ jobs:
           cd pulumi-backend
           npm ci
           npm run dev > /dev/null 2>&1 &
-          sleep 2s
+          sleep 20s
           curl -X GET 'http://localhost:5000/autodeploy' -H 'accept: application/json'
           cd ..
           
