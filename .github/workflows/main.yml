@@ -8,6 +8,7 @@ env:
   CLOUD_SECRETS: secretsGCP
   PULUMI_SECRETS: secretsPulumi
   GIT_LOCATION: Default
+  HTTP_CODE: ''
     
 jobs:
   copy-file:
@@ -53,7 +54,9 @@ jobs:
           npm ci
           npm run dev > /dev/null 2>&1 &
           sleep 20s
-          curl -X GET 'http://localhost:5000/autodeploy' -H 'accept: application/json'
+          HTTP_CODE=$(curl -X GET 'http://localhost:5000/autodeploy' -H 'accept: application/json' --output output.txt)
+          cat output.txt
+          echo ${HTTP_CODE}
           cd ..
           
       - name: Update urls files
