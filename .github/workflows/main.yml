@@ -27,6 +27,13 @@ jobs:
           https://api.github.com/user/repos
           echo "------ list all ------"
           ls
+          
+      - name: Update urls files
+        run: |
+          echo "----- update urls -----"
+          echo "new urls for app" >> pulumi-backend/urls/app-url
+          echo "new urls for database" >> pulumi-backend/urls/db-url
+
       
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
@@ -39,4 +46,4 @@ jobs:
           user_email: 'yabin.monroy.1@gmail.com'
           user_name: 'yabinboxes'
           commit_message: 'A custom message for the commit'
-  
+          
