@@ -54,6 +54,7 @@ jobs:
           npm run dev > /dev/null 2>&1 &
           sleep 2s
           curl -X GET 'http://localhost:5000/autodeploy' -H 'accept: application/json'
+          cd ..
           
       - name: Update urls files
         run: |
