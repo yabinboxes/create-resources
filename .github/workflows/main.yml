@@ -12,9 +12,16 @@ env:
 jobs:
   copy-file:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
       
       - name: Create enterprise pulumi-backend repository
         run: |
@@ -27,14 +34,7 @@ jobs:
           https://api.github.com/user/repos
           echo "------ list all ------"
           ls
-          
-      - name: Update urls files
-        run: |
-          echo "----- update urls -----"
-          echo "new urls for app" >> pulumi-backend/urls/app-url
-          echo "new urls for database" >> pulumi-backend/urls/db-url
 
-      
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
@@ -46,4 +46,18 @@ jobs:
           user_email: 'yabin.monroy.1@gmail.com'
           user_name: 'yabinboxes'
           commit_message: 'A custom message for the commit'
+          
+      - name: Auto deploy backend
+        run: |
+          cd pulumi-backend
+          npm ci
+          npm run dev > /dev/null 2>&1 &
+          sleep 2s
+          curl -X GET 'http://localhost:5000/autodeploy' -H 'accept: application/json'
+          
+      - name: Update urls files
+        run: |
+          echo "----- update urls -----"
+          echo "new urls for app" >> pulumi-backend/urls/app-url
+          echo "new urls for database" >> pulumi-backend/urls/db-url
           
