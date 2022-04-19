@@ -35,18 +35,6 @@ jobs:
           https://api.github.com/user/repos
           echo "------ list all ------"
           ls
-
-      - name: Pushes test file
-        uses: dmnemec/copy_file_to_another_repo_action@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source_file: pulumi-backend/.
-          destination_repo: 'yabinboxes/pulumi-backend-MyCleanTechComp'
-          destination_folder: 'test-dir'
-          user_email: 'yabin.monroy.1@gmail.com'
-          user_name: 'yabinboxes'
-          commit_message: 'A custom message for the commit'
           
       - name: Auto deploy backend
         run: |
@@ -64,4 +52,17 @@ jobs:
           echo "----- update urls -----"
           echo "new urls for app" >> pulumi-backend/urls/app-url
           echo "new urls for database" >> pulumi-backend/urls/db-url
+
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: pulumi-backend/.
+          destination_repo: 'yabinboxes/pulumi-backend-MyCleanTechComp'
+          destination_folder: 'test-dir'
+          user_email: 'yabin.monroy.1@gmail.com'
+          user_name: 'yabinboxes'
+          commit_message: 'A custom message for the commit'
+          
           
