@@ -31,7 +31,7 @@ jobs:
           echo "------ create repo ------"
           curl -X POST \
           -H 'Authorization: Bearer ${{ secrets.API_TOKEN_GITHUB }}' \
-          -d "{\"name\": \"pulumi-backend-MyCleanTechComp\", \"auto_init\": \"true\", \"description\": \"This is a from an API call\"}" \
+          -d "{\"name\": \"pulumi-backend-MyCleanTechComp\", \"auto_init\": \"true\", \"gitignore_template\": \"Node\", \"description\": \"This is a from an API call\"}" \
           https://api.github.com/user/repos
           echo "------ list all ------"
           ls
