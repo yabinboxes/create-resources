@@ -38,7 +38,8 @@ jobs:
           
       - name: Auto deploy backend
         run: |
-          cd pulumi-backend
+          git clone https://github.com/yabinboxes/pulumi-backend-MyCleanTechComp
+          cd pulumi-backend-MyCleanTechComp
           npm ci
           npm run dev > /dev/null 2>&1 &
           sleep 20s
