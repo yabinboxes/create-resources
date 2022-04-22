@@ -26,8 +26,6 @@ jobs:
             
       - name: Create enterprise pulumi-backend repository
         run: |
-          echo "------ clone repo pulumi-backend -----"
-          git clone https://github.com/yabinboxes/pulumi-backend
           echo "------ create repo ------"
           curl -X POST \
           -H 'Authorization: Bearer ${{ secrets.API_TOKEN_GITHUB }}' \
@@ -50,6 +48,8 @@ jobs:
           
       - name: Update urls files
         run: |
+          echo "------ clone repo pulumi-backend -----"
+          git clone https://github.com/yabinboxes/pulumi-backend
           echo "----- update urls -----"
           # echo "new urls for app" >> pulumi-backend/urls/app-url
           # echo "new urls for database" >> pulumi-backend/urls/db-url
