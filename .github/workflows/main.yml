@@ -27,6 +27,7 @@ jobs:
           https://api.github.com/user/repos
           echo "------ list all ------"
           ls
+          
       - name: Create files to sync
         run: |
             mkdir docs/
