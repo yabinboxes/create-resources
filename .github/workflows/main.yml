@@ -18,8 +18,8 @@ jobs:
       
       - name: Create enterprise pulumi-backend repository
         run: |
-          echo "------ clone repo pulumi-backend -----"
-          git clone https://github.com/yabinboxes/pulumi-backend
+          #echo "------ clone repo pulumi-backend -----"
+          #git clone https://github.com/yabinboxes/pulumi-backend
           echo "------ create repo ------"
           curl -X POST \
           -H 'Authorization: Bearer ${{ secrets.API_TOKEN_GITHUB }}' \
@@ -27,7 +27,7 @@ jobs:
           https://api.github.com/user/repos
           echo "------ list all ------"
           ls
-          
+          sleep 30s
       - name: Create files to sync
         run: |
             mkdir docs/
