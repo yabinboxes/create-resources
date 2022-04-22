@@ -39,3 +39,5 @@ jobs:
           user_email: 'yabin.monroy.1@gmail.com'
           user_name: 'yabinboxes'
           destination_branch: main
+          destination_branch_create: main
+          commit_message: 'first commit'
