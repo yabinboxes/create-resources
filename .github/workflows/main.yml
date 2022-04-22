@@ -36,17 +36,17 @@ jobs:
           echo "------ list all ------"
           ls
           
-      - name: Auto deploy backend
-        run: |
-          git clone https://github.com/yabinboxes/pulumi-backend-MyCleanTechComp
-          cd pulumi-backend-MyCleanTechComp
-          npm ci
-          npm run dev > /dev/null 2>&1 &
-          sleep 30s
-          HTTP_CODE=$(curl -X GET 'http://localhost:5000/autodeploy' -H 'accept: application/json' --output output.txt)
-          cat output.txt
-          echo ${HTTP_CODE}
-          cd ..
+      #- name: Auto deploy backend
+      #  run: |
+      #    git clone https://github.com/yabinboxes/pulumi-backend-MyCleanTechComp
+      #    cd pulumi-backend-MyCleanTechComp
+      #    npm ci
+      #    npm run dev > /dev/null 2>&1 &
+      #    sleep 30s
+      #    HTTP_CODE=$(curl -X GET 'http://localhost:5000/autodeploy' -H 'accept: application/json' --output output.txt)
+      #    cat output.txt
+      #    echo ${HTTP_CODE}
+      #    cd ..
           
       - name: Update urls files
         run: |
