@@ -18,8 +18,6 @@ jobs:
       
       - name: Create enterprise pulumi-backend repository
         run: |
-          #echo "------ clone repo pulumi-backend -----"
-          #git clone https://github.com/yabinboxes/pulumi-backend
           echo "------ create repo ------"
           curl -X POST \
           -H 'Authorization: Bearer ${{ secrets.API_TOKEN_GITHUB }}' \
@@ -28,6 +26,8 @@ jobs:
           echo "------ list all ------"
           ls
           sleep 10s
+          echo "------ clone repo pulumi-backend -----"
+          git clone https://github.com/yabinboxes/pulumi-backend
      
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
