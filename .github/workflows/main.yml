@@ -61,7 +61,7 @@ jobs:
         with:
           source_file: pulumi-backend/.
           destination_repo: 'yabinboxes/pulumi-backend-MyCleanTechComp'
-          destination_folder: '.'
+          destination_folder: 'backend'
           user_email: 'yabin.monroy.1@gmail.com'
           user_name: 'yabinboxes'
           commit_message: 'A custom message for the commit'
