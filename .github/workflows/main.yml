@@ -9,6 +9,7 @@ env:
   PULUMI_SECRETS: secretsPulumi
   GIT_LOCATION: Default
     
+    
 jobs:
   copy-file:
     runs-on: ubuntu-latest
